@@ -19,12 +19,29 @@
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch"
         Margin="10">
-        <TextBlock
-            Text="{Binding Note}"
-            TextAlignment="Center"
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"
-            FontSize="140"/>
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+            <TextBlock
+                Text="{Binding Note}"
+                TextAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="140"/>
+            <Grid
+                Margin="20, 60, 0,20"
+                ColumnDefinitions="*"
+                RowDefinitions="Auto,*">
+                <TextBlock Grid.Row="0" Text="下一个:"/>
+                <TextBlock Grid.Row="1"
+                           Margin="20, 0, 0, 0"
+                           Text="{Binding NextNote}"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           FontSize="54"/>
+            </Grid>
+        </StackPanel>
         <NumericUpDown Watermark="10"
                        Minimum="2"
                        Maximum="100"

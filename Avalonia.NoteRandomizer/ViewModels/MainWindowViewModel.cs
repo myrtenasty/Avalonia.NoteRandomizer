@@ -19,6 +19,7 @@ namespace Avalonia.NoteRandomizer.ViewModels
 
         [ObservableProperty] private ObservableCollection<string> _logs = new();
         [ObservableProperty] private string _note = "C";
+        [ObservableProperty] private string _nextNote = "D";
         [ObservableProperty] private int _bpm = 60;
         
         private Func<Task> _randomNoteAction = null!;
@@ -54,6 +55,9 @@ namespace Avalonia.NoteRandomizer.ViewModels
                 _noteCount++;
                 await BeepAtInterval(frequency, 200, TimeSpan.Zero);
             };
+            
+            var random = new Random();
+            NextNote = _notes[random.Next(_notes.Count)];
         }
 
         [RelayCommand]
@@ -81,7 +85,9 @@ namespace Avalonia.NoteRandomizer.ViewModels
             {
                 index = random.Next(_notes.Count);
             }
-            Note = _notes[index];
+
+            Note = NextNote;
+            NextNote = _notes[index];
             _lastNoteIndex = index;
         }
 
