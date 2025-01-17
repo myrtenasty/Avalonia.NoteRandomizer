@@ -44,7 +44,7 @@
         </StackPanel>
         <NumericUpDown Watermark="10"
                        Minimum="2"
-                       Maximum="100"
+                       Maximum="120"
                        p1:TextFieldAssist.Hints="节拍"
                        p1:TextFieldAssist.Label="Cool label"
                        FontSize="18"

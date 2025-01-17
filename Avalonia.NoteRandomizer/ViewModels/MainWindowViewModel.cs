@@ -26,6 +26,7 @@ namespace Avalonia.NoteRandomizer.ViewModels
 
         private int _noteCount;
         private int _lastNoteIndex;
+        private int _frequency = 1000;
         
         private readonly List<string> _notes = new()
         {
@@ -37,6 +38,31 @@ namespace Avalonia.NoteRandomizer.ViewModels
             "Ab", "A", "A#",
             "Bb", "B", "B#"
         };
+        
+        private readonly Dictionary<string, int> _frequencyMap = new()
+        {
+            {"Cb", 494},
+            {"C", 523},
+            {"C#", 554},
+            {"Db", 554},
+            {"D", 587},
+            {"D#", 622},
+            {"Eb", 622},
+            {"E", 659},
+            {"E#", 698},
+            {"Fb", 659},
+            {"F", 698},
+            {"F#", 740},
+            {"Gb", 740},
+            {"G", 784},
+            {"G#", 831},
+            {"Ab", 831},
+            {"A", 880},
+            {"A#", 932},
+            {"Bb", 932},
+            {"B", 988},
+            {"B#", 1047}
+        };
 
         public MainWindowViewModel()
         {
@@ -46,14 +72,14 @@ namespace Avalonia.NoteRandomizer.ViewModels
             _randomNoteAction = async () =>
             {
                 _noteCount %= 4;
-                int frequency = 1000;
+                int frequency = _frequency / 2;
                 if (_noteCount == 0)
                 {
                     GetRandomNote();
-                    frequency = 2000;
+                    frequency = _frequency;
                 }
                 _noteCount++;
-                await BeepAtInterval(frequency, 200, TimeSpan.Zero);
+                await BeepAtInterval(frequency, 300, TimeSpan.Zero);
             };
             
             var random = new Random();
@@ -88,6 +114,7 @@ namespace Avalonia.NoteRandomizer.ViewModels
 
             Note = NextNote;
             NextNote = _notes[index];
+            _frequency = _frequencyMap[Note];
             _lastNoteIndex = index;
         }
 
