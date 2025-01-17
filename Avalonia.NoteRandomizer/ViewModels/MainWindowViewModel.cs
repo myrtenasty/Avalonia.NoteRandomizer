@@ -51,6 +51,7 @@ namespace Avalonia.NoteRandomizer.ViewModels
                     GetRandomNote();
                     frequency = 2000;
                 }
+                _noteCount++;
                 await BeepAtInterval(frequency, 200, TimeSpan.Zero);
             };
         }
@@ -62,7 +63,7 @@ namespace Avalonia.NoteRandomizer.ViewModels
             _noteCount = 0;
             var timerService = App.ServiceProvider.GetRequiredService<TimerService>();
             var period = TimeSpan.FromMilliseconds(60000 / Bpm);
-            timerService.RegisterEvent(period * 4, _randomNoteAction);
+            timerService.RegisterEvent(period, _randomNoteAction);
         }
         
         [RelayCommand]
