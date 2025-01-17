@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Avalonia.NoteRandomizer.ViewModels"
+        xmlns:p1="clr-namespace:Material.Styles.Assists;assembly=Material.Styles"
+        x:Class="Avalonia.NoteRandomizer.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Avalonia.NoteRandomizer"
+        Width="400"
+        Height="300">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <StackPanel
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        Margin="10">
+        <TextBlock
+            Text="{Binding Note}"
+            TextAlignment="Center"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontSize="140"/>
+        <NumericUpDown Watermark="10"
+                       Minimum="2"
+                       Maximum="100"
+                       p1:TextFieldAssist.Hints="节拍"
+                       p1:TextFieldAssist.Label="Cool label"
+                       FontSize="18"
+                       FormatString="0"
+                       Value="{Binding Bpm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Grid
+            ColumnDefinitions="*,*"
+            RowDefinitions="Auto">
+            <Button Grid.Row = "0" Grid.Column="0" Margin="10"
+                    Command="{Binding StartRandomizerCommand}">
+                <TextBlock Text="开始"/>
+            </Button>
+            <Button Grid.Row = "0" Grid.Column="1" Margin="10"
+                    Command="{Binding StopRandomizerCommand}">
+                <TextBlock Text="结束"/>
+            </Button>
+        </Grid>
+    </StackPanel>
+
+</Window>

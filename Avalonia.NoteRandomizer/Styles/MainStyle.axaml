@@ -1,0 +1,76 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+    
+    <Style Selector="Expander.HistoryArea">
+        <Setter Property="RelativePanel.AlignLeftWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignRightWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True"></Setter>
+    </Style>
+    <Style Selector="Button">
+        <Setter Property="IsEnabled" Value="True"/>
+        <Setter Property="FontFamily" Value="{StaticResource SourceHanSansRegular}"></Setter>
+    </Style>
+    <Style Selector="controls|FloatingButton">
+        <Setter Property="IsEnabled" Value="True"/>
+    </Style>
+    <Style Selector="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource SourceHanSansRegular}"></Setter>
+    </Style>
+    <Style Selector="TextBox">
+        <Setter Property="UseFloatingWatermark" Value="True"></Setter>
+        <Setter Property="FontFamily" Value="{StaticResource SourceHanSansRegular}"></Setter>
+        <Setter Property="Theme" Value="{StaticResource OutlineTextBox}"></Setter>
+    </Style>
+    <Style Selector="MenuItem.MoreFunctionMenuItem">
+        <Style Selector="^ /template/ Border#PART_MenuItemHighlighter">
+            <Setter Property="Opacity" Value="0.3" />
+        </Style>
+        <Style Selector="^:not(.Menu):not(:disabled):selected /template/ Border#PART_MenuItemHighlighter">
+            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="Background" Value="LightSlateGray"/>
+        </Style>
+        <Style Selector="^:not(.Menu):disabled">
+            <Setter Property="Opacity" Value="0.9" />
+            <Setter Property="Background" Value="Blue"/>
+        </Style>
+    </Style>
+    
+    <Style Selector="Border.InputArea">
+        <Setter Property="Background" Value="AliceBlue"/>
+        <Setter Property="Height" Value="240"></Setter>
+        <Setter Property="CornerRadius" Value="5"></Setter>
+        <Setter Property="RelativePanel.AlignLeftWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignRightWithPanel" Value="True"></Setter>
+    </Style>
+    <Style Selector="Button.OperationButton">
+        <Setter Property="Margin" Value="2 5"></Setter>
+    </Style>
+    
+    <Style Selector="TextBox.Console">
+        <!-- <Setter Property="Background" Value="AliceBlue"></Setter> -->
+        <Setter Property="RelativePanel.AlignLeftWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignRightWithPanel" Value="True"></Setter>
+        <Setter Property="UseFloatingWatermark" Value="True"></Setter>
+        <Setter Property="Theme" Value="{StaticResource OutlineTextBox}"></Setter>
+        <Setter Property="Margin" Value="5 0 5 5"></Setter>
+        <Setter Property="AcceptsReturn" Value="True"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        <Setter Property="TextAlignment" Value="DetectFromContent"></Setter>
+        <Setter Property="IsReadOnly" Value="True"></Setter>
+        <Setter Property="Focusable" Value="True"></Setter>
+    </Style>
+    <Style Selector="Expander.HistoryArea">
+        <Setter Property="RelativePanel.AlignLeftWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignRightWithPanel" Value="True"></Setter>
+        <Setter Property="RelativePanel.AlignBottomWithPanel" Value="True"></Setter>
+        <Setter Property="FontFamily" Value="{StaticResource SourceHanSansRegular}"></Setter>
+    </Style>
+
+    <!-- Add Styles Here -->
+</Styles>
