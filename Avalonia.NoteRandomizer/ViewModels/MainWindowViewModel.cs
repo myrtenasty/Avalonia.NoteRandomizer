@@ -21,6 +21,7 @@ namespace Avalonia.NoteRandomizer.ViewModels
         [ObservableProperty] private string _note = "C";
         [ObservableProperty] private string _nextNote = "D";
         [ObservableProperty] private int _bpm = 60;
+        [ObservableProperty] private int _changeNoteInterval = 4;
         
         private Func<Task> _randomNoteAction = null!;
 
@@ -71,7 +72,7 @@ namespace Avalonia.NoteRandomizer.ViewModels
 
             _randomNoteAction = async () =>
             {
-                _noteCount %= 4;
+                _noteCount %= ChangeNoteInterval;
                 int frequency = _frequency / 2;
                 if (_noteCount == 0)
                 {

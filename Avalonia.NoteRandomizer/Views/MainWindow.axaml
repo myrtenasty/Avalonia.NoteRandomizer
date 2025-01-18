@@ -7,7 +7,7 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="Avalonia.NoteRandomizer"
         Width="400"
-        Height="300">
+        Height="380">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -42,8 +42,22 @@
                            FontSize="54"/>
             </Grid>
         </StackPanel>
-        <NumericUpDown Watermark="10"
-                       Minimum="2"
+        <Grid
+            ColumnDefinitions="Auto,Auto,Auto"
+            Margin="10">
+            <TextBlock Grid.Column="0" Text="每" FontSize="20" VerticalAlignment="Center"/>
+            <NumericUpDown Grid.Column="1" Watermark="4"
+                           Minimum="1"
+                           Maximum="12"
+                           FontSize="20"
+                           Height="40"
+                           Width="80"
+                           FormatString="0"
+                           Value="{Binding ChangeNoteInterval, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Column="2" Text="拍随机生成一个音符" FontSize="20" VerticalAlignment="Center"/>
+        </Grid>
+        <NumericUpDown Watermark="60"
+                       Minimum="1"
                        Maximum="120"
                        p1:TextFieldAssist.Hints="节拍"
                        p1:TextFieldAssist.Label="Cool label"
